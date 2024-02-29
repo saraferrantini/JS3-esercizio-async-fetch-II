@@ -32,6 +32,7 @@ function cambiaImg(query) {
       //4.☑️ciclo for sulle img card cani che abbiamo già per cambiare l'src con quello che arriva da jsonData
       for (let i = 0; i <= immage_list.length - 1; i++) {
         immage_list[i].src = jsonData.photos[i].src.tiny;
+        // per far apparire l'id
         text_muted_list[i].textContent = jsonData.photos[i].id;
       }
     });
@@ -49,6 +50,14 @@ window.onload = function () {
   //  ☑️ASCOLTATORE SUL BOTTONE LOAD SECONDARY IMAGES
   secondoBottone.addEventListener("click", function () {
     cambiaImg("horse");
+  });
+
+  // ☑️ E)RICERCA
+  let terzoBottone = document.getElementById("ricerca_btn");
+  terzoBottone.addEventListener("click", function () {
+    let inputRicerca = document.getElementById("ricerca").value;
+
+    cambiaImg(inputRicerca);
   });
 };
 
